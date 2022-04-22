@@ -3,6 +3,7 @@ import java.util.ArrayList;
 public class SearchContacts extends AddContact{
 
     ArrayList<String> search;
+    HashMap<String, String> testTest
 
     public SearchContacts(String contactName, int contactNumber) {
         super(contactName, contactNumber);
@@ -21,5 +22,6 @@ public class SearchContacts extends AddContact{
         System.out.println("Whats their name?");
         contactName = scanner.next();
 
-        this.search.render();
+//        this.search.render();
+    }
 }

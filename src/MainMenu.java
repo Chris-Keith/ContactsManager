@@ -21,6 +21,10 @@ public class MainMenu {
             AddContact.add();
             System.out.println("--- contact list updated ---\n");
             MainMenu.displayMenu();
+        } else if (menuOption == 4) {
+            DeleteContact.delete();
+            System.out.println("Deleting...");
+            MainMenu.displayMenu();
         }
     }
 }
