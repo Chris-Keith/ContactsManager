@@ -9,7 +9,7 @@ public class AddContact {
 
     public AddContact(String contactName, int contactNumber) {
         this.contactName = contactName;
-        this.contactName = String.valueOf(contactNumber);
+        this.contactNumber = contactNumber;
 
     }
 
