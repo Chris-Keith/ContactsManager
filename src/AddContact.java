@@ -38,4 +38,20 @@ public class AddContact {
             e.printStackTrace();
         }
     }
+
+    public static String getContactName() {
+        return contactName;
+    }
+
+    public static void setContactName(String contactName) {
+        AddContact.contactName = contactName;
+    }
+
+    public static int getContactNumber() {
+        return contactNumber;
+    }
+
+    public static void setContactNumber(int contactNumber) {
+        AddContact.contactNumber = contactNumber;
+    }
 }
