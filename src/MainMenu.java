@@ -1,5 +1,6 @@
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class MainMenu {
@@ -23,7 +24,15 @@ public class MainMenu {
             System.out.println("--- contact list updated ---\n");
             MainMenu.displayMenu();
         } else if (menuOption == 3) {
-            SearchContacts.searchTryCatch();
+            SearchContacts.searchFeature();
+            MainMenu.displayMenu();
+        }else if(menuOption == 4){
+            DeleteContact.deleteFeature();
+            MainMenu.displayMenu();
+        }else if (menuOption == 5){
+            System.out.println("Goodbye :)");
+        }else{
+            System.out.println("--- INVALID RESPONSE ---");
             MainMenu.displayMenu();
         }
     }
