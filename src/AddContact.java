@@ -1,41 +1,45 @@
 
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.Locale;
 import java.util.Scanner;
 
 public class AddContact {
     static Scanner scanner = new Scanner(System.in);
     static String contactName;
     static String contactLastName;
-    static int contactNumber;
+    static String contactNumber;
 
-    public AddContact(String contactName, String contactLastName, int contactNumber) {
-        this.contactName = contactName;
-        this.contactLastName = contactLastName;
-        this.contactNumber = contactNumber;
+
+
+    public AddContact(String contactName, String contactLastName, String contactNumber) {
+        AddContact.contactName = contactName;
+        AddContact.contactLastName = contactLastName;
+        AddContact.contactNumber = contactNumber;
 
     }
+//
 
-    public static void askName() throws IOException {
+    public static void askName() {
         System.out.println("Whats their FIRST name?");
-        contactName = scanner.nextLine();
+        contactName = scanner.next();
         System.out.println("Whats their LAST name?");
-        contactLastName = scanner.nextLine();
+        contactLastName = scanner.next();
         System.out.println("Whats their number?");
-        contactNumber = scanner.nextInt();
+        contactNumber = scanner.next();
     }
 
-    public static void add() throws IOException {
-        AddContact newContact = new AddContact(contactName, contactLastName, contactNumber);
+    public static void add() {
         askName();
-        tryCatchAdd(newContact);
+        tryCatchAdd();
     }
 
-    public static void tryCatchAdd(AddContact newContact) {
+    public static void tryCatchAdd() {
         try {
             FileWriter myWriter = new FileWriter("contacts.txt", true);
-            myWriter.write(contactName + " " + contactLastName + " | " + contactNumber+"\n");
+            myWriter.write(contactName.toUpperCase(Locale.ROOT) + " " + contactLastName.toUpperCase(Locale.ROOT) + " | (" + contactNumber.substring(0,3)+ ")-" +contactNumber.substring(3,6)+ "-" +contactNumber.substring(6,10)  + "\n");
             myWriter.close();
+//
         } catch (
                 IOException e) {
             System.out.println("An error occurred.");
@@ -52,11 +56,11 @@ public class AddContact {
         AddContact.contactName = contactName;
     }
 
-    public static int getContactNumber() {
+    public static String getContactNumber() {
         return contactNumber;
     }
 
-    public static void setContactNumber(int contactNumber) {
+    public static void setContactNumber(String contactNumber) {
         AddContact.contactNumber = contactNumber;
     }
 }

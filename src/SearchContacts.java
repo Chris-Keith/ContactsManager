@@ -11,13 +11,16 @@ public class SearchContacts {
         BufferedReader buff = new BufferedReader(new FileReader("contacts.txt"));
         String line;
         while ((line = buff.readLine()) != null) {
-            if (line.contains(userSearchContact)) {
+            if (line.contains(userSearchContact.toUpperCase(Locale.ROOT))) {
                 System.out.println("\n" + line.toUpperCase(Locale.ROOT) + "\n");
                 MainMenu.displayMenu();
             }
 
+
         }
         System.out.println("\nno contact found\n");
+
+
 
     }
 
