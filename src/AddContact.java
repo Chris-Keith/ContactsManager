@@ -1,3 +1,4 @@
+
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
@@ -22,7 +23,6 @@ public class AddContact {
         contactLastName = scanner.nextLine();
         System.out.println("Whats their number?");
         contactNumber = scanner.nextInt();
-        phoneNumberChecker();
     }
 
     public static void add() throws IOException {
@@ -34,9 +34,7 @@ public class AddContact {
     public static void tryCatchAdd(AddContact newContact) {
         try {
             FileWriter myWriter = new FileWriter("contacts.txt", true);
-            myWriter.write("\n"+"Name    |    Phone Number\n"+
-                    "----------------"
-                    + contactName + " " + contactLastName + " | " + contactNumber);
+            myWriter.write(contactName + " " + contactLastName + " | " + contactNumber+"\n");
             myWriter.close();
         } catch (
                 IOException e) {
@@ -45,16 +43,6 @@ public class AddContact {
         }
     }
 
-    public static void phoneNumberChecker() throws IOException {
-        if (String.valueOf(contactNumber).length() == 10) {
-            System.out.println("nice");
-
-
-        } else if(String.valueOf(contactNumber).length() != 10){
-            System.out.println("invalid entry, please enter a 10 digit number");
-            MainMenu.displayMenu();
-        }
-    }
 
     public static String getContactName() {
         return contactName;
