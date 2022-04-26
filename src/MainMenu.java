@@ -1,4 +1,3 @@
-import jdk.swing.interop.SwingInterOpUtils;
 
 import java.io.IOException;
 import java.util.Objects;
@@ -8,7 +7,6 @@ public class MainMenu {
     public MainMenu() {
 
     }
-   protected static int number;
     public static void displayMenu() throws IOException {
         Scanner scanner = new Scanner(System.in);
         System.out.println("_______________________________\n");
