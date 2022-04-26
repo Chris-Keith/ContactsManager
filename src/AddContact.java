@@ -33,26 +33,53 @@ public class AddContact {
 //        }
     }
 
-    public static void add() {
+    public static void add() throws IOException {
         askName();
         tryCatchAdd();
     }
 
-    public static void tryCatchAdd() {
-        String var =contactName.toUpperCase(Locale.ROOT) + " " + contactLastName.toUpperCase(Locale.ROOT);
-        String var2 = " | (" + contactNumber.substring(0,3)+ ")-" +contactNumber.substring(3,6)+ "-" +contactNumber.substring(6,10);
-        String formattedsString = String.format("|%-20s"," "+ var);
-        String formattedString2 = String.format("%-20s|\n", var2);
-        try {
-            FileWriter myWriter = new FileWriter("contacts.txt", true);
-            myWriter.write(formattedsString + formattedString2);
-            myWriter.close();
+    public static void tryCatchAdd() throws IOException {
+        String var = null;
+        String var2 = null;
+        if (contactNumber.length() == 10) {
+            var = contactName.toUpperCase(Locale.ROOT) + " " + contactLastName.toUpperCase(Locale.ROOT);
+            var2 = " | (" + contactNumber.substring(0, 3) + ")-" + contactNumber.substring(3, 6) + "-" + contactNumber.substring(6, 10);
+            try {
+                FileWriter myWriter = new FileWriter("contacts.txt", true);
+                String formattedsString = String.format("|%-20s", " " + var);
+                String formattedString2 = String.format("%-20s|\n", var2);
+                myWriter.write(formattedsString + formattedString2);
+                System.out.println("--- contact list updated ---\n");
+                myWriter.close();
 
-        } catch (
-                IOException e) {
-            System.out.println("An error occurred.");
-            e.printStackTrace();
+            } catch (
+                    IOException e) {
+                System.out.println("An error occurred.");
+                e.printStackTrace();
+            }
+        } else if(contactNumber.length() == 7){
+            String var3 = contactName.toUpperCase(Locale.ROOT) + " " + contactLastName.toUpperCase(Locale.ROOT);
+            String var4 = " |       " + contactNumber.substring(0, 3) + "-" + contactNumber.substring(3, 7);
+            try {
+                FileWriter myWriter = new FileWriter("contacts.txt", true);
+                String formattedsString = String.format("|%-20s", " " + var3);
+                String formattedString2 = String.format("%-20s|\n", var4);
+                myWriter.write(formattedsString + formattedString2);
+                System.out.println("--- contact list updated ---\n");
+                myWriter.close();
+
+            } catch (
+                    IOException e) {
+                System.out.println("An error occurred.");
+                e.printStackTrace();
+            }
+        }else {
+            System.out.println("Invalid phone number please try again...");
+            askName();
+            System.out.println("Invalid phone number...");
         }
+        
+        
     }
 
 
