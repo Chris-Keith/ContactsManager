@@ -16,18 +16,18 @@ public class MainMenu {
             MainMenu.displayMenu();
         } else if (menuOption.equals("1")) {
             RenderContacts.render();
+            ExitOrMenu.ExitOrMenu();
             System.out.println("\n");
-            MainMenu.displayMenu();
         } else if (menuOption.equals("2")) {
             AddContact.add();
+            ExitOrMenu.ExitOrMenu();
             System.out.println("--- contact list updated ---\n");
-            MainMenu.displayMenu();
         } else if (menuOption.equals("3")) {
             SearchContacts.searchFeature();
-            MainMenu.displayMenu();
+            ExitOrMenu.ExitOrMenu();
         }else if(menuOption.equals("4")){
             DeleteContact.deleteFeature();
-            MainMenu.displayMenu();
+            ExitOrMenu.ExitOrMenu();
         }else if (menuOption.equals("5")){
             System.out.println("Goodbye :)");
         }else{
