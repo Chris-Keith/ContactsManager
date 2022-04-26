@@ -12,12 +12,13 @@ public class SearchContacts {
         while ((line = buff.readLine()) != null) {
             if (line.contains(userSearchContact.toUpperCase(Locale.ROOT))) {
                 System.out.println("\n" + line.toUpperCase(Locale.ROOT) + "\n");
-                MainMenu.displayMenu();
             }
 
 
         }
+        ExitOrMenu.ExitOrMenu();
         System.out.println("\nno contact found\n");
+
 
 
 
