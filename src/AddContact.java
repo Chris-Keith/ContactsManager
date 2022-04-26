@@ -26,6 +26,11 @@ public class AddContact {
         contactLastName = scanner.next();
         System.out.println("Whats their number?");
         contactNumber = scanner.next();
+//        if(put file reader here finds a match){
+//            ask to overwrite
+//                    scanner if they want to overwrite
+//        file writer that line with new information
+//        }
     }
 
     public static void add() {
