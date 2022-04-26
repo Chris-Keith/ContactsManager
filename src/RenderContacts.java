@@ -7,8 +7,8 @@ public class RenderContacts {
         try {
             File myObj = new File("contacts.txt");
             Scanner myReader = new Scanner(myObj);
-            System.out.println("\n"+"Name        |          Phone Number\n"+
-                    "--------------------------------");
+            System.out.println("\n"+"| Name                | Phone Number     |\n"+
+                    "__________________________________________");
             while (myReader.hasNextLine()) {
                 String data = myReader.nextLine();
                 System.out.println(data);

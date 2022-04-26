@@ -18,7 +18,6 @@ public class AddContact {
         AddContact.contactNumber = contactNumber;
 
     }
-//
 
     public static void askName() {
         System.out.println("Whats their FIRST name?");
@@ -35,11 +34,15 @@ public class AddContact {
     }
 
     public static void tryCatchAdd() {
+        String var =contactName.toUpperCase(Locale.ROOT) + " " + contactLastName.toUpperCase(Locale.ROOT);
+        String var2 = " | (" + contactNumber.substring(0,3)+ ")-" +contactNumber.substring(3,6)+ "-" +contactNumber.substring(6,10);
+        String formattedsString = String.format("|%-20s"," "+ var);
+        String formattedString2 = String.format("%-20s|\n", var2);
         try {
             FileWriter myWriter = new FileWriter("contacts.txt", true);
-            myWriter.write(contactName.toUpperCase(Locale.ROOT) + " " + contactLastName.toUpperCase(Locale.ROOT) + " | (" + contactNumber.substring(0,3)+ ")-" +contactNumber.substring(3,6)+ "-" +contactNumber.substring(6,10)  + "\n");
+            myWriter.write(formattedsString + formattedString2);
             myWriter.close();
-//
+
         } catch (
                 IOException e) {
             System.out.println("An error occurred.");
